@@ -202,8 +202,9 @@
     });
 
     $$('[data-parallax]').forEach(img => {
-      gsap.fromTo(img, { yPercent: 0 }, {
-        yPercent: parseFloat(img.dataset.parallax), ease: 'none',
+      const p = parseFloat(img.dataset.parallax);
+      gsap.fromTo(img, { yPercent: -p / 2 }, {
+        yPercent: p / 2, ease: 'none',
         scrollTrigger: { trigger: img.parentElement, start: 'top bottom', end: 'bottom top', scrub: true }
       });
     });
