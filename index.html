@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AMORA — рекламное агентство в Перми</title>
+  <meta name="description" content="AMORA — новое рекламное агентство в Перми: полиграфия, наружная реклама, сувенирная продукция, канцелярия, шопперы, SMM. Мы любим свою работу!">
+  <meta name="theme-color" content="#0f0e0d">
+  <meta property="og:title" content="AMORA — реклама, сделанная с любовью">
+  <meta property="og:description" content="Полиграфия, наружная реклама, сувениры, канцелярия, шопперы и SMM в Перми.">
+  <meta property="og:image" content="about-team.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    { "imports": {
+      "three": "./three.module.min.js",
+      "three/addons/": "./"
+    } }
+  </script>
+  <link rel="modulepreload" href="three.module.min.js">
+</head>
+<body class="is-loading">
+
+  <!-- SVG-символы фирменного стиля -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 64 64">
+      <path fill-rule="evenodd" fill="currentColor" d="M32 58C20 49.5 4 38 4 21.5 4 12 11.2 5 20 5c5.3 0 9.4 2.6 12 6.6C34.6 7.6 38.7 5 44 5c8.8 0 16 7 16 16.5C60 38 44 49.5 32 58Z M32 18.5 22 43.5h5.6l1.9-5.1h5l1.9 5.1H42L32 18.5Z M30.8 34l1.2-3.6 1.2 3.6h-2.4Z"/>
+    </symbol>
+    <symbol id="heart" viewBox="0 0 24 24">
+      <path d="M12 21.2C7.6 18 2 13.9 2 8.1 2 4.9 4.5 2.5 7.5 2.5c1.9 0 3.4.9 4.5 2.4 1.1-1.5 2.6-2.4 4.5-2.4 3 0 5.5 2.4 5.5 5.6 0 5.8-5.6 9.9-10 13.1Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- Прелоадер -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <svg class="loader__mark"><use href="#mark"/></svg>
+      <div class="loader__count"><span data-count>0</span>%</div>
+    </div>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"></div></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ШАПКА -->
+  <header class="header" data-header>
+    <a href="#top" class="logo" aria-label="AMORA — на главную">
+      <svg class="logo__mark"><use href="#mark"/></svg>
+      <span class="logo__word">amora</span>
+    </a>
+    <nav class="nav" aria-label="Основное меню">
+      <a href="#about" class="nav__link">О нас</a>
+      <a href="#services" class="nav__link">Услуги</a>
+      <a href="#order" class="nav__link">Заказ</a>
+      <a href="#contacts" class="nav__link">Контакты</a>
+    </nav>
+    <div class="header__right">
+      <a href="tel:+73422134567" class="header__phone">(342) 213-45-67</a>
+      <button class="btn btn--small btn--accent" data-open-callback>Заказать звонок</button>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false" data-burger><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="menu" data-menu aria-hidden="true">
+    <nav class="menu__nav">
+      <a href="#about" data-menu-link><small>01</small>О нас</a>
+      <a href="#services" data-menu-link><small>02</small>Услуги</a>
+      <a href="#order" data-menu-link><small>03</small>Заказ</a>
+      <a href="#contacts" data-menu-link><small>04</small>Контакты</a>
+    </nav>
+    <div class="menu__foot">
+      <a href="tel:+73422134567">(342) 213-45-67</a>
+      <a href="mailto:amora@mail.ru">amora@mail.ru</a>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" data-theme="dark">
+      <canvas class="hero__canvas" data-hero-canvas aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="hero__content container">
+        <p class="eyebrow hero__eyebrow" data-hero-fade><span class="dot"></span>Рекламное агентство · Пермь</p>
+        <h1 class="hero__title">
+          <span class="line"><span class="line__in">Реклама,</span></span>
+          <span class="line"><span class="line__in">сделанная</span></span>
+          <span class="line"><span class="line__in"><em>с любовью</em></span></span>
+        </h1>
+        <div class="hero__bottom">
+          <div class="hero__lead" data-hero-fade>
+            <p class="hero__lead-title">Новая и&nbsp;современная компания будущего</p>
+            <p class="hero__lead-text">От&nbsp;визитки до&nbsp;световой вывески и&nbsp;соцсетей — вкладываем <span class="hero__lead-mark">кусочек себя</span> в&nbsp;каждый проект.</p>
+            <ul class="hero__lead-tags" aria-label="Направления">
+              <li>Полиграфия</li><li>Наружка</li><li>Мерч</li><li>SMM</li>
+            </ul>
+          </div>
+          <div class="hero__cta" data-hero-fade>
+            <a href="#order" class="btn btn--accent btn--magnetic">
+              <span>Оставить заявку</span><svg class="icon"><use href="#arrow"/></svg>
+            </a>
+            <a href="#services" class="btn btn--ghost btn--magnetic">Смотреть услуги</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__meta container" data-hero-fade>
+        <div class="hero__stat"><b>6</b><span>направлений<br>рекламы</span></div>
+        <div class="hero__stat"><b>1&nbsp;шт.</b><span>или оптовый<br>тираж</span></div>
+        <div class="hero__scroll"><span>Листайте</span><i></i></div>
+      </div>
+    </section>
+
+    <!-- БЕГУЩАЯ СТРОКА -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" data-marquee>
+        <span>Мы любим свою работу</span><svg><use href="#heart"/></svg>
+        <span>Полиграфия</span><svg><use href="#heart"/></svg>
+        <span>Наружная реклама</span><svg><use href="#heart"/></svg>
+        <span>Сувениры</span><svg><use href="#heart"/></svg>
+        <span>SMM</span><svg><use href="#heart"/></svg>
+      </div>
+    </div>
+
+    <!-- О КОМПАНИИ -->
+    <section class="about section" id="about" data-theme="dark">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow"><span class="dot"></span>01 — О команде AMORA</p>
+        </div>
+
+        <p class="about__text" data-scrub-text>
+          Мы новая и современная компания будущего. Что нас отличает от других рекламных агентств? Пожалуй, всё как у всех. Есть услуги стандартные для компаний и индивидуальные в единичном экземпляре. Гибкая ценовая политика, сроки, доставка, разные бонусы для наших клиентов, но всё же, есть кое-что, чем мы выделяемся.
+        </p>
+
+        <div class="about__grid">
+          <figure class="about__photo about__photo--big" data-reveal-img>
+            <img src="about-team.jpg" alt="Команда агентства обсуждает проект за ноутбуком" loading="lazy" data-parallax="-12">
+          </figure>
+          <div class="about__side">
+            <p class="about__love" data-reveal>Мы всей душой болеем за&nbsp;рекламное дело! В&nbsp;каждый проект мы вкладываем кусочек себя и&nbsp;своей любви.</p>
+            <figure class="about__photo about__photo--small" data-reveal-img>
+              <img src="about-neon.jpg" alt="Красная неоновая надпись So glad you are here на стене" loading="lazy" data-parallax="-8">
+            </figure>
+          </div>
+        </div>
+
+        <ul class="perks" data-perks>
+          <li class="perk">
+            <div class="perk__top">
+              <span class="perk__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3.5 12.3V4.5a1 1 0 0 1 1-1h7.8l8.2 8.2a1.4 1.4 0 0 1 0 2l-6.8 6.8a1.4 1.4 0 0 1-2 0L3.5 12.3Z"/><circle cx="8.2" cy="8.2" r="1.6"/></svg>
+              </span>
+              <span class="perk__num" aria-hidden="true">01</span>
+            </div>
+            <h3 class="perk__title">Гибкая ценовая политика</h3>
+            <p class="perk__text">Подберём решение под бюджет — от&nbsp;единичного экземпляра до&nbsp;оптового тиража.</p>
+            <span class="perk__bar" aria-hidden="true"></span>
+          </li>
+          <li class="perk">
+            <div class="perk__top">
+              <span class="perk__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+              </span>
+              <span class="perk__num" aria-hidden="true">02</span>
+            </div>
+            <h3 class="perk__title">Точные сроки</h3>
+            <p class="perk__text">Согласуем дедлайн на&nbsp;старте и&nbsp;держим слово до&nbsp;сдачи проекта.</p>
+            <span class="perk__bar" aria-hidden="true"></span>
+          </li>
+          <li class="perk">
+            <div class="perk__top">
+              <span class="perk__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M2.5 6.5h11v9.5h-11z"/><path d="M13.5 10h4l3 3.2V16h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg>
+              </span>
+              <span class="perk__num" aria-hidden="true">03</span>
+            </div>
+            <h3 class="perk__title">Доставка</h3>
+            <p class="perk__text">Привезём готовую продукцию в&nbsp;офис, на&nbsp;склад или сразу на&nbsp;мероприятие.</p>
+            <span class="perk__bar" aria-hidden="true"></span>
+          </li>
+          <li class="perk">
+            <div class="perk__top">
+              <span class="perk__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3.5 8.5h17v4h-17z"/><path d="M5 12.5V20h14v-7.5M12 8.5V20"/><path d="M12 8.5C10.5 5 7 4.6 7 6.6 7 8 9.5 8.5 12 8.5Zm0 0c1.5-3.5 5-3.9 5-1.9 0 1.4-2.5 1.9-5 1.9Z"/></svg>
+              </span>
+              <span class="perk__num" aria-hidden="true">04</span>
+            </div>
+            <h3 class="perk__title">Бонусы клиентам</h3>
+            <p class="perk__text">Скидки постоянным клиентам и&nbsp;приятные подарки к&nbsp;заказам.</p>
+            <span class="perk__bar" aria-hidden="true"></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="love" data-love>
+        <div class="love__sticky">
+          <p class="love__kicker">Главное, что нас отличает</p>
+          <h2 class="love__title">
+            <span class="love__row"><span>Мы</span> <span>любим</span></span>
+            <span class="love__row"><span>свою</span> <span class="love__heart"><svg><use href="#heart"/></svg></span> <span>работу!</span></span>
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section class="services" id="services" data-theme="light">
+      <div class="services__pin" data-services-pin>
+        <div class="container services__head">
+          <p class="eyebrow"><span class="dot"></span>02 — Услуги</p>
+          <h2 class="section-title" data-split>Что мы делаем</h2>
+          <p class="services__hint">Стандартные решения для компаний и&nbsp;индивидуальные — в&nbsp;единичном экземпляре</p>
+        </div>
+
+        <div class="services__viewport">
+          <ol class="services__track" data-services-track>
+            <li class="card" data-card>
+              <div class="card__inner" data-tilt>
+                <figure class="card__img"><img src="print.jpg" alt="Чёрные визитки на мраморной поверхности" loading="lazy"></figure>
+                <div class="card__body">
+                  <span class="card__num">01</span>
+                  <h3 class="card__title">Полиграфия</h3>
+                  <ul class="tags"><li>визитки</li><li>буклеты</li><li>открытки</li><li>проспекты</li><li>листовки</li><li>флаеры</li></ul>
+                  <button class="card__btn" data-order="Полиграфия">Заказать <svg class="icon"><use href="#arrow"/></svg></button>
+                </div>
+              </div>
+            </li>
+            <li class="card" data-card>
+              <div class="card__inner" data-tilt>
+                <figure class="card__img"><img src="outdoor.jpg" alt="Светящийся рекламный лайтбокс на остановке ночью" loading="lazy"></figure>
+                <div class="card__body">
+                  <span class="card__num">02</span>
+                  <h3 class="card__title">Наружная реклама</h3>
+                  <ul class="tags"><li>баннеры</li><li>световые вывески</li></ul>
+                  <button class="card__btn" data-order="Наружная реклама">Заказать <svg class="icon"><use href="#arrow"/></svg></button>
+                </div>
+              </div>
+            </li>
+            <li class="card" data-card>
+              <div class="card__inner" data-tilt>
+                <figure class="card__img"><img src="souvenir.jpg" alt="Белая кружка с принтом сердца" loading="lazy"></figure>
+                <div class="card__body">
+                  <span class="card__num">03</span>
+                  <h3 class="card__title">Сувенирная продукция</h3>
+                  <ul class="tags"><li>кружки</li><li>ежедневники</li><li>футболки</li><li>ручки</li><li>флешки</li><li>портативные зарядные устройства</li><li>и&nbsp;др.</li></ul>
+                  <button class="card__btn" data-order="Сувенирная продукция">Заказать <svg class="icon"><use href="#arrow"/></svg></button>
+                </div>
+              </div>
+            </li>
+            <li class="card" data-card>
+              <div class="card__inner" data-tilt>
+                <figure class="card__img"><img src="stationery.jpg" alt="Фирменный красный блокнот, визитки и кружка с ручками" loading="lazy"></figure>
+                <div class="card__body">
+                  <span class="card__num">04</span>
+                  <h3 class="card__title">Производство канцелярии</h3>
+                  <ul class="tags"><li>тетради</li><li>ручки</li><li>блокноты</li><li>стикеры</li></ul>
+                  <button class="card__btn" data-order="Производство канцелярии">Заказать <svg class="icon"><use href="#arrow"/></svg></button>
+                </div>
+              </div>
+            </li>
+            <li class="card" data-card>
+              <div class="card__inner" data-tilt>
+                <figure class="card__img"><img src="shopper.jpg" alt="Человек держит белый холщовый шоппер" loading="lazy"></figure>
+                <div class="card__body">
+                  <span class="card__num">05</span>
+                  <h3 class="card__title">Производство шопперов</h3>
+                  <ul class="tags"><li>по&nbsp;индивидуальному заказу</li><li>оптом</li></ul>
+                  <button class="card__btn" data-order="Производство шопперов">Заказать <svg class="icon"><use href="#arrow"/></svg></button>
+                </div>
+              </div>
+            </li>
+            <li class="card" data-card>
+              <div class="card__inner" data-tilt>
+                <figure class="card__img"><img src="smm.jpg" alt="Смартфон с лентой публикаций в социальной сети" loading="lazy"></figure>
+                <div class="card__body">
+                  <span class="card__num">06</span>
+                  <h3 class="card__title">SMM и оформление соцсетей</h3>
+                  <ul class="tags"><li>ведение</li><li>оформление профилей</li><li>контент</li></ul>
+                  <button class="card__btn" data-order="SMM и оформление социальных сетей">Заказать <svg class="icon"><use href="#arrow"/></svg></button>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="container services__progress"><span data-services-progress></span></div>
+      </div>
+    </section>
+
+    <!-- ЗАКАЗ -->
+    <section class="order section" id="order" data-theme="accent">
+      <div class="container order__grid">
+        <div class="order__intro">
+          <p class="eyebrow"><span class="dot"></span>03 — Заказ</p>
+          <h2 class="section-title" data-split>Расскажите о&nbsp;задаче</h2>
+          <p class="order__lead">Оставьте предварительный заказ или попросите перезвонить — менеджер свяжется с&nbsp;вами, уточнит детали и&nbsp;рассчитает стоимость.</p>
+          <div class="order__alt">
+            <span>Или сразу:</span>
+            <a href="tel:+73422134567" class="link-underline">(342) 213-45-67</a>
+            <a href="mailto:amora@mail.ru" class="link-underline">amora@mail.ru</a>
+          </div>
+        </div>
+
+        <div class="form-card" data-reveal>
+          <div class="tabs" role="tablist">
+            <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="order"><span class="t-full">Предварительный заказ</span><span class="t-short">Предзаказ</span></button>
+            <button class="tabs__btn" role="tab" aria-selected="false" data-tab="call"><span class="t-full">Заказать звонок</span><span class="t-short">Звонок</span></button>
+            <span class="tabs__pill" data-tabs-pill></span>
+          </div>
+
+          <form class="form" name="order" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form novalidate>
+            <input type="hidden" name="form-name" value="order">
+            <input type="hidden" name="type" value="Предварительный заказ" data-form-type>
+            <p class="hp"><label>Не заполняйте: <input name="bot-field"></label></p>
+
+            <div class="field">
+              <input id="f-name" name="name" type="text" placeholder=" " autocomplete="name" required minlength="2">
+              <label for="f-name">Ваше имя</label>
+              <span class="field__err">Введите имя</span>
+            </div>
+            <div class="field">
+              <input id="f-phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" required data-phone>
+              <label for="f-phone">Телефон</label>
+              <span class="field__err">Введите номер полностью</span>
+            </div>
+
+            <div class="order-only">
+              <div class="field">
+                <input id="f-email" name="email" type="email" placeholder=" " autocomplete="email">
+                <label for="f-email">E-mail (необязательно)</label>
+                <span class="field__err">Проверьте адрес</span>
+              </div>
+              <fieldset class="chips">
+                <legend>Что нужно?</legend>
+                <label><input type="checkbox" name="service" value="Полиграфия"><span>Полиграфия</span></label>
+                <label><input type="checkbox" name="service" value="Наружная реклама"><span>Наружная реклама</span></label>
+                <label><input type="checkbox" name="service" value="Сувенирная продукция"><span>Сувениры</span></label>
+                <label><input type="checkbox" name="service" value="Производство канцелярии"><span>Канцелярия</span></label>
+                <label><input type="checkbox" name="service" value="Производство шопперов"><span>Шопперы</span></label>
+                <label><input type="checkbox" name="service" value="SMM и оформление социальных сетей"><span>SMM</span></label>
+              </fieldset>
+              <div class="field">
+                <textarea id="f-msg" name="message" placeholder=" " rows="3"></textarea>
+                <label for="f-msg">Тираж, сроки, пожелания</label>
+              </div>
+            </div>
+
+            <div class="call-only" hidden>
+              <div class="field field--select">
+                <select id="f-time" name="time">
+                  <option>Как можно скорее</option>
+                  <option>С 9:00 до 12:00</option>
+                  <option>С 12:00 до 15:00</option>
+                  <option>С 15:00 до 18:00</option>
+                </select>
+                <label for="f-time">Удобное время звонка</label>
+              </div>
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required checked>
+              <span>Согласен на обработку персональных данных</span>
+            </label>
+
+            <button type="submit" class="btn btn--dark btn--wide btn--magnetic" data-submit>
+              <span data-submit-label>Отправить заказ</span><svg class="icon"><use href="#arrow"/></svg>
+            </button>
+          </form>
+
+          <div class="form-success" data-success hidden>
+            <svg class="form-success__heart"><use href="#heart"/></svg>
+            <h3>Спасибо, заявка принята!</h3>
+            <p>Мы свяжемся с&nbsp;вами в&nbsp;ближайшее рабочее время.</p>
+            <button class="btn btn--dark btn--small" data-success-reset>Отправить ещё</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ / КОНТАКТЫ -->
+  <footer class="footer" id="contacts" data-theme="dark">
+    <div class="container">
+      <div class="footer__top">
+        <p class="eyebrow"><span class="dot"></span>04 — Контакты</p>
+        <h2 class="footer__cta" data-split>Давайте сделаем что-то, что&nbsp;полюбят</h2>
+      </div>
+
+      <div class="footer__grid">
+        <div class="footer__col">
+          <span class="footer__label">Адрес</span>
+          <address>г. Пермь,<br>ул. Ленина</address>
+        </div>
+        <div class="footer__col">
+          <span class="footer__label">Телефон</span>
+          <a href="tel:+73422134567" class="footer__big link-underline">(342) 213-45-67</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__label">E-mail</span>
+          <a href="mailto:amora@mail.ru" class="footer__big link-underline">amora@mail.ru</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__label">Социальные сети</span>
+          <div class="socials">
+            <a href="https://vk.ru/alexeeva_dz" target="_blank" rel="noopener" class="social" data-social="vk" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.8 17.3c-5.5 0-8.6-3.8-8.7-10h2.7c.1 4.6 2.1 6.5 3.7 6.9V7.3h2.6v3.9c1.6-.2 3.2-2 3.8-3.9h2.5a7.4 7.4 0 0 1-3.4 4.8 7.7 7.7 0 0 1 4 5.2h-2.8a4.9 4.9 0 0 0-4.1-3.5v3.5h-.3Z"/></svg>
+              <span>ВКонтакте</span>
+            </a>
+            <a href="https://t.me/vv_dz" target="_blank" rel="noopener" class="social" data-social="tg" aria-label="Telegram">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.4 4.3 18.3 19c-.2 1-.8 1.3-1.7.8l-4.6-3.4-2.2 2.1c-.2.3-.5.5-1 .5l.3-4.7 8.6-7.8c.4-.3-.1-.5-.6-.2L6.5 12.9 2 11.5c-1-.3-1-1 .2-1.5l17.8-6.9c.8-.3 1.6.2 1.4 1.2Z"/></svg>
+              <span>Telegram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__map" data-reveal>
+        <iframe title="Карта: Пермь, улица Ленина" src="https://yandex.ru/map-widget/v1/?text=%D0%9F%D0%B5%D1%80%D0%BC%D1%8C%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0&z=14" loading="lazy" allowfullscreen></iframe>
+      </div>
+
+      <div class="footer__word" aria-hidden="true" data-footer-word>
+        <span>a</span><span>m</span><span>o</span><span>r</span><span>a</span>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> AMORA. Рекламное агентство</span>
+        <span>Сделано с <svg class="icon icon--heart"><use href="#heart"/></svg> в Перми</span>
+        <a href="#top" class="link-underline" data-to-top>Наверх ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно «Заказать звонок» -->
+  <div class="modal" data-modal aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" aria-label="Закрыть" data-close-modal>×</button>
+      <p class="eyebrow"><span class="dot"></span>Обратный звонок</p>
+      <h3 id="modal-title" class="modal__title">Оставьте номер — перезвоним иПерезвоним за&nbsp;15&nbsp;минут в&nbsp;рабочее времяnbsp;всё обсудим</h3>
+      <form class="form form--modal" name="callback" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form novalidate>
+        <input type="hidden" name="form-name" value="callback">
+        <input type="hidden" name="type" value="Заказать звонок">
+        <p class="hp"><label>Не заполняйте: <input name="bot-field"></label></p>
+        <div class="field">
+          <input id="m-name" name="name" type="text" placeholder=" " autocomplete="name" required minlength="2">
+          <label for="m-name">Ваше имя</label>
+          <span class="field__err">Введите имя</span>
+        </div>
+        <div class="field">
+          <input id="m-phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" required data-phone>
+          <label for="m-phone">Телефон</label>
+          <span class="field__err">Введите номер полностью</span>
+        </div>
+        <label class="consent">
+          <input type="checkbox" name="consent" required checked>
+          <span>Согласен на обработку персональных данных</span>
+        </label>
+        <button type="submit" class="btn btn--accent btn--wide" data-submit><span data-submit-label>Жду звонка</span><svg class="icon"><use href="#arrow"/></svg></button>
+      </form>
+      <div class="form-success" data-success hidden>
+        <svg class="form-success__heart"><use href="#heart"/></svg>
+        <h3>Спасибо!</h3>
+        <p>Скоро перезвоним.</p>
+        <button class="btn btn--dark btn--small" data-close-modal>Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="gsap.min.js"></script>
+  <script src="ScrollTrigger.min.js"></script>
+  <script src="lenis.min.js"></script>
+  <script src="main.js"></script>
+  <script type="module" src="hero3d.js"></script>
+</body>
+</html>
