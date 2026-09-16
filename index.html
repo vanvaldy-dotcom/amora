@@ -8,11 +8,11 @@
   <meta name="theme-color" content="#0f0e0d">
   <meta property="og:title" content="AMORA — реклама, сделанная с любовью">
   <meta property="og:description" content="Полиграфия, наружная реклама, сувениры, канцелярия, шопперы и SMM в Перми.">
-  <meta property="og:image" content="about-team.jpg">
+  <meta property="og:image" content="about-huddle.jpg">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=6">
   <script type="importmap">
     { "imports": {
       "three": "./three.module.min.js",
@@ -139,26 +139,36 @@
           Мы новая и современная компания будущего. Что нас отличает от других рекламных агентств? Пожалуй, всё как у всех. Есть услуги стандартные для компаний и индивидуальные в единичном экземпляре. Гибкая ценовая политика, сроки, доставка, разные бонусы для наших клиентов, но всё же, есть кое-что, чем мы выделяемся.
         </p>
 
-        <div class="about__grid">
-          <div class="about__media">
-            <figure class="about__photo about__photo--big" data-reveal-img>
-              <img src="about-team.jpg" alt="Команда агентства обсуждает проект за ноутбуком" loading="lazy" data-parallax="-12">
-              <figcaption class="about__caption"><span class="dot"></span>Команда AMORA · Пермь</figcaption>
-            </figure>
-          </div>
-          <div class="about__side">
-            <blockquote class="about__quote" data-reveal>
-              <span class="about__quote-mark" aria-hidden="true">“</span>
-              <p>Мы <em>всей душой</em> болеем за&nbsp;рекламное дело! В&nbsp;каждый проект мы вкладываем <mark>кусочек себя и&nbsp;своей любви</mark>.</p>
-              <footer class="about__quote-author">
-                <svg class="about__quote-logo" aria-hidden="true"><use href="#mark"/></svg>
-                <span><b>Команда AMORA</b><small>рекламное агентство</small></span>
-              </footer>
-            </blockquote>
-            <figure class="about__photo about__photo--small" data-reveal-img>
-              <img src="about-neon.jpg" alt="Красная неоновая надпись So glad you are here на стене" loading="lazy">
-            </figure>
-          </div>
+        <div class="bento">
+          <article class="bento__quote" data-reveal>
+            <div class="bento__quote-top">
+              <svg class="bento__quote-logo" aria-hidden="true"><use href="#mark"/></svg>
+              <span>Команда AMORA</span>
+            </div>
+            <p class="bento__quote-title">Мы всей душой болеем за&nbsp;рекламное дело!</p>
+            <p class="bento__quote-text">В&nbsp;каждый проект мы вкладываем кусочек себя и&nbsp;своей любви.</p>
+            <svg class="bento__quote-heart" aria-hidden="true"><use href="#heart"/></svg>
+          </article>
+
+          <figure class="bento__photo bento__photo--huddle" data-reveal>
+            <img src="about-huddle.jpg" alt="Команда объединяет руки в знак общего дела" loading="lazy">
+            <figcaption>Одна команда</figcaption>
+          </figure>
+
+          <figure class="bento__photo bento__photo--design" data-reveal>
+            <img src="about-design.jpg" alt="Дизайнер рисует на графическом планшете рядом с цветовыми образцами" loading="lazy">
+            <figcaption>Дизайн и макеты</figcaption>
+          </figure>
+
+          <figure class="bento__photo bento__photo--ideas" data-reveal>
+            <img src="about-ideas.jpg" alt="Команда обсуждает идеи у стеклянной стены со стикерами" loading="lazy">
+            <figcaption>Идеи и брейншторм</figcaption>
+          </figure>
+
+          <article class="bento__fact" data-reveal>
+            <span class="bento__fact-num">1&nbsp;шт.</span>
+            <p>или большой тираж — стандартные решения для компаний и&nbsp;индивидуальные в&nbsp;единичном экземпляре</p>
+          </article>
         </div>
 
         <ul class="perks" data-perks>
@@ -485,7 +495,7 @@
   <script src="gsap.min.js"></script>
   <script src="ScrollTrigger.min.js"></script>
   <script src="lenis.min.js"></script>
-  <script src="main.js"></script>
-  <script type="module" src="hero3d.js"></script>
+  <script src="main.js?v=6"></script>
+  <script type="module" src="hero3d.js?v=6"></script>
 </body>
 </html>
