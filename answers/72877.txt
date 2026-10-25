@@ -7,7 +7,7 @@
 Чат ЗаконГПТ: chat_dd6e24cdacbe59d0
 Статус: сдан сторожу
 request_id: wall-45525001_72877-1
-draft_id: 
+draft_id: 6448b9209ae54bbd
 update_id: нет
 =====
 Добрый день!
